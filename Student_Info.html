@@ -1,0 +1,89 @@
+<html>
+<head>
+		<title>Student Information</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+
+		<script type="text/javascript">
+
+			var result=" <table> ";
+					result+="<tr><th>StuID <th> Name <th> Gender <th> Linux <th> Web <th> SE <th> OOAD <th> MIS <th> Total <th> Grade </tr> </table>";
+
+			function Myadd() {
+					
+				var	StuID, nam, gen, sub1, sub2, sub3, sub4, sub5, item, total, avg;
+				StuID=document.form1.StuID.value;
+				nam=document.form1.nam.value;
+				gen=document.form1.sex.value;
+				sub1=document.form1.sub1.value;
+				sub2=document.form1.sub2.value;
+				sub3=document.form1.sub3.value;
+				sub4=document.form1.sub4.value;
+				sub5=document.form1.sub5.value;
+
+				total=parseInt(sub1)+parseInt(sub2)+parseInt(sub3)+parseInt(sub4)+parseInt(sub5);
+				avg = parseInt(total)/5;
+
+				 if(avg>90)
+					{grade="A";}
+				 else if (avg>80 && avg<90)
+					{grade="B";}
+				 else if (avg>70 && avg<80)
+					{grade="C";}
+				 else if (avg>60 && avg<70)
+					{grade="D";}
+				 else if (avg>=35 && avg<60)
+					{grade="E";}
+
+				item= '<td>'+StuID+"</td><td>"+nam+"</td><td>"+gen+"</td><td>"+sub1+"</td><td>"+sub2+"</td><td>"+sub3+"</td><td>"+sub4+"</td><td>"+sub5+"</td><td>"+total+"</td><td>"+grade+'</td>';
+
+				result+= '<tr>'+item+'</tr>';
+				document.getElementById('dis').innerHTML=result;
+
+			}  
+
+		</script>
+</head>
+<body>
+		<div class="student">
+				<form name="form1">
+								<h2>Student Information</h2>
+
+								<label>StuID:</label>
+								<input id="fs" type="number" size="20" name="StuID"/><br />
+
+								<label>Name:</label>
+								<input id="fs"  type="text" size="20" name="nam"/><br />
+
+								<label>Gender:</label>
+							 	<input id="fs"  type="radio" value="Male" name="sex">
+							 	<label>Male</label>
+
+								<input id="fs"  type="radio" value="Female" name="sex"> 
+								<label>Female</label> <br>
+
+								<label>Linux:</label>
+								<input id="fs"  type="text" size="20" name="sub1"/><br />
+
+								<label>Web:</label>
+								<input id="fs"  type="number" size="20" name="sub2"/><br />
+
+								<label>SE:</label>
+								<input id="fs"  type="number" size="20" name="sub3"/><br />
+
+								<label>OOAD:</label>
+						   	<input id="fs"  type="number" size="20" name="sub4"/><br />
+
+						   	<label>MIS:</label>
+						    <input id="fs"  type="number" size="20" name="sub5"/><br />
+
+								<input id="fs"  type="button" name="btnadd" value="Add Student" onclick="Myadd()"/>
+								<input id="fs"  type="reset" name="btnclear" value="Clear"> <br>
+
+								<table border="1px"id="dis">
+									
+								</table>
+				</form>
+		</div>
+</body>
+
+</html>
